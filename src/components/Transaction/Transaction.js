@@ -7,6 +7,7 @@ import "./Transaction.css"
 function Transaction() {
  
  const { id } = useParams()
+ 
 
  const [data, setData] = useState(null)
 
@@ -15,11 +16,14 @@ function Transaction() {
  useEffect(() => {
    fetchData()
  }, [])
- //let url = ""
+ 
+ let url = "https://spontaneous-moxie-4928c2.netlify.app/transactions"
+ 
+
 async function fetchData(){
     try {
         let result = await axios.get(`http://localhost:3333/transactions/transaction/${id}`,
-          //url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
+          url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
           )
         setData(result.data)
     } catch (e) {

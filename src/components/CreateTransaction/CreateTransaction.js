@@ -14,14 +14,14 @@ function CreateTransaction() {
                 paymentFor: "",
   })
 
- // let url = ""
+  let url = "https://spontaneous-moxie-4928c2.netlify.app/transactions"
   async function handleSubmit(event){
     event.preventDefault()
     try {
       await axios.post(`http://localhost:3333/transactions/create-transaction`,{
         ...data,
       },
-     // url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
+      url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
      )
       alert("New transaction added!!")
       navigate("/transactions")
