@@ -1,0 +1,20 @@
+.new-form-container h2 {
+    padding: 25px 25px;
+    font-size: 32px;
+  }
+  
+  .new-container-form {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgb(198, 242, 255);
+    padding: 35px 35px;
+  }
+  
+  .new-container-input {
+    margin: 5px 0;
+  }
+  
+  .new-container-input input,
+  textarea {
+    width: 100%;
+  }
