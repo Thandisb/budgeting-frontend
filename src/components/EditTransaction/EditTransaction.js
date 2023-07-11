@@ -22,7 +22,8 @@ function EditTransaction() {
   async function handleFetchDataForEdit(){
     try {
         let {data} = await axios.get(`http://localhost:3333/transactions/transaction/${id}`,
-             url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333")
+         //    url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
+         )
         console.log(data)
         const {
             amount,
@@ -43,7 +44,7 @@ function EditTransaction() {
         console.log(e)
     }
   }
-   let url
+  // let url = ""
   async function handleOnSubmitUpdate(event){
          event.preventDefault()
          try {
@@ -54,7 +55,8 @@ function EditTransaction() {
                 itemName: itemNameInput,
                 paymentFor: paymentForInput,
             },
-            url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333")
+           // url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
+           )
             alert("Budget list Updated")
             navigate("/transactions")
             const {

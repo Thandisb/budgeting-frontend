@@ -8,7 +8,7 @@ function Transactions() {
 
 const [transactionsArray, setTransactionsArray] = useState([])
 
-let url
+//let url = ''
 useEffect(() => {
 fetchData()
 }, [])
@@ -17,7 +17,8 @@ fetchData()
   async function fetchData (){
   try {
    let result = await axios.get(`http://localhost:3333/transactions`,
-   url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333")
+   //url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
+   )
    setTransactionsArray(result.data)
   } catch (error) {
     

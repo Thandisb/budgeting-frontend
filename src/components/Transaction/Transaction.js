@@ -15,11 +15,12 @@ function Transaction() {
  useEffect(() => {
    fetchData()
  }, [])
- let url
+ //let url = ""
 async function fetchData(){
     try {
         let result = await axios.get(`http://localhost:3333/transactions/transaction/${id}`,
-        url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333")
+          //url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
+          )
         setData(result.data)
     } catch (e) {
         console.log(e.response)
@@ -32,7 +33,8 @@ function handleNavigateBack(){
 async function handleDeleteItemById(id){
     try {
         await axios.delete(`http://localhost:3333/transactions/delete-item-by-id/${id}`,
-        url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333")
+       // url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
+       )
         navigate("/transactions")
     } catch (e) {
         console.log(e)
