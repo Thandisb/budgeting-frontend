@@ -18,12 +18,13 @@ function EditTransaction() {
   useEffect(() => {
     handleFetchDataForEdit()
   }, [])
-  let url = "https://spontaneous-moxie-4928c2.netlify.app/transactions"
+  
   async function handleFetchDataForEdit(){
     try {
-        let {data} = await axios.get(`http://localhost:3333/transactions/transaction/${id}`,
-            url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
-         )
+        const url = process.env.NODE_ENV === "production" ? 
+       "https://budget-project-backend3.onrender.com/transactions" : 
+       `http://localhost:3333/transactions/transaction/${id}`
+        let {data} = await axios.get(url)
         console.log(data)
         const {
             amount,
@@ -48,7 +49,10 @@ function EditTransaction() {
   async function handleOnSubmitUpdate(event){
          event.preventDefault()
          try {
-            let result = await axios.put(`http://localhost:3333/transactions/update-item-by-id/${id}`,{
+            const url = process.env.NODE_ENV === "production" ? 
+       "https://budget-project-backend3.onrender.com/transactions" : 
+       `http://localhost:3333/transactions/update-item-by-id/${id}`
+            let result = await axios.put(url ,{
                 amount: amountInput,
                 category: categoryInput,
                 date: dateInput,

@@ -5,7 +5,7 @@ import axios from 'axios'
 import './CreateTransaction.css'
 
 function CreateTransaction() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const [data, setData] = useState({
                 amount: 0,
                 category: "",
@@ -14,15 +14,16 @@ function CreateTransaction() {
                 paymentFor: "",
   })
 
-  let url = "https://spontaneous-moxie-4928c2.netlify.app/transactions"
+  
   async function handleSubmit(event){
     event.preventDefault()
     try {
-      await axios.post(`http://localhost:3333/transactions/create-transaction`,{
-        ...data,
-      },
-      url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
-     )
+      const url = process.env.NODE_ENV === "production" ? 
+       "https://budget-project-backend3.onrender.com/transactions" : 
+       `http://localhost:3333/transactions/create-transacton`
+      await axios.post(url)
+        
+     
       alert("New transaction added!!")
       navigate("/transactions")
     } catch (e) {

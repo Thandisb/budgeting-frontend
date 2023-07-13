@@ -9,7 +9,7 @@ function Transactions() {
 const [transactionsArray, setTransactionsArray] = useState([])
 
 
-let url = 'https://spontaneous-moxie-4928c2.netlify.app/transactions'
+
 useEffect(() => {
 fetchData()
 }, [])
@@ -17,9 +17,8 @@ fetchData()
 
   async function fetchData (){
   try {
-   let result = await axios.get(`http://localhost:3333/transactions`,
-   url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
-   )
+    url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "http://localhost:3333/transactions"
+    let result = await axios.get(url)
    setTransactionsArray(result.data)
   } catch (error) {
     

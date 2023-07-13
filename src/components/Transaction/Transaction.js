@@ -17,14 +17,15 @@ function Transaction() {
    fetchData()
  }, [])
  
- let url = "https://spontaneous-moxie-4928c2.netlify.app/transactions"
+ 
  
 
 async function fetchData(){
     try {
-        let result = await axios.get(`http://localhost:3333/transactions/transaction/${id}`,
-          url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
-          )
+        const url = process.env.NODE_ENV === "production" ? 
+       "https://budget-project-backend3.onrender.com/transactions" : 
+       `http://localhost:3333/transactions/transaction/${id}`
+        let result = await axios.get(url)
         setData(result.data)
     } catch (e) {
         console.log(e.response)
@@ -36,9 +37,10 @@ function handleNavigateBack(){
 }
 async function handleDeleteItemById(id){
     try {
-        await axios.delete(`http://localhost:3333/transactions/delete-item-by-id/${id}`,
-       // url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "localhost:3333"
-       )
+        const url = process.env.NODE_ENV === "production" ? 
+        "https://budget-project-backend3.onrender.com/transactions" : 
+        `http://localhost:3333/transactions/delete-item-by-id/${id}`
+        await axios.delete(url)
         navigate("/transactions")
     } catch (e) {
         console.log(e)
