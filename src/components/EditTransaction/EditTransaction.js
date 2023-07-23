@@ -52,7 +52,7 @@ function EditTransaction() {
             const url = process.env.NODE_ENV === "production" ? 
        "https://budget-project-backend3.onrender.com/transactions" : 
        `http://localhost:3333/transactions/update-item-by-id/${id}`
-            let result = await axios.put(url ,{
+            let result = await axios.put(url, {
                 amount: amountInput,
                 category: categoryInput,
                 date: dateInput,

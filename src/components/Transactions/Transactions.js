@@ -17,7 +17,7 @@ fetchData()
 
   async function fetchData (){
   try {
-    url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "http://localhost:3333/transactions"
+    const url = process.env.NODE_ENV === "production" ? "https://budget-project-backend3.onrender.com/transactions" : "http://localhost:3333/transactions"
     let result = await axios.get(url)
    setTransactionsArray(result.data)
   } catch (error) {
